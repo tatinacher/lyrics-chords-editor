@@ -4,6 +4,7 @@ export const getTextWidth = (text: string, font: string) => {
   if (context) {
     context.font = font;
     const metrics = context.measureText(text);
+    console.log(text, metrics);
     return metrics.width;
   }
 };

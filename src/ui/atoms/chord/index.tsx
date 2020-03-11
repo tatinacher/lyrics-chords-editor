@@ -29,7 +29,6 @@ const ChordLine: StyledComponent<"div", any, ChordProps> = styled.div<
   display: flex;
   justify-content: left;
   align-items: center;
-  padding-left: 5px;
   margin: 5px 0 10px;
 `;
 

@@ -28,7 +28,7 @@ export const chordColor: string[] = [
   "#FEFFBE"
 ];
 
-export const suffixes = [
+export const chordsSuffixes = [
   "major",
   "minor",
   "dim",
