@@ -4,14 +4,18 @@ import { parseLyrics } from "../../lib/chords/";
 import { EditorBlock, EditorContainer, EditorInput, Title } from "./styles";
 import { ChordType } from "../../constants/types";
 import { songTitle } from "../../constants/";
-
+import { updateSong } from "../song/model";
 interface EditorProps {
   title?: string;
   text?: string;
 }
 
 export const Editor: React.FC<EditorProps> = ({ title, text }) => {
-  const [lyrics, setLyrics] = React.useState("");
+  const [
+    lyrics,
+    setLyrics
+  ] = React.useState(` B        F#        B        F#        E          E7
+Good day sunshine, good day sunshine, good day sunshine`);
   const [lyricsLines, setLyricsLines] = React.useState<
     Array<string | ChordType[]>
   >([]);
@@ -23,6 +27,7 @@ export const Editor: React.FC<EditorProps> = ({ title, text }) => {
   const onClickHandler = React.useCallback(() => {
     const lines = parseLyrics(lyrics);
     setLyricsLines(lines);
+    updateSong(lines);
   }, [lyrics]);
 
   return (
