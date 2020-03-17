@@ -1,10 +1,11 @@
 import * as React from "react";
 import { Preview } from "./preview";
-import { parseLyrics } from "../../lib/chords/";
-import { EditorBlock, EditorContainer, EditorInput, Title } from "./styles";
+import { parseLyrics } from "../../lib/chords";
+import { EditorBlock, EditorContainer, EditorInput } from "./styles";
 import { ChordType } from "../../constants/types";
-import { songTitle } from "../../constants/";
-import { updateSong } from "../song/model";
+import { songTitle } from "../../constants";
+import { updateSong } from "../../features/song/model";
+import { Button, Input } from "antd";
 interface EditorProps {
   title?: string;
   text?: string;
@@ -34,10 +35,12 @@ Good day sunshine, good day sunshine, good day sunshine`);
     <EditorContainer>
       <EditorBlock>
         <label>
-          {songTitle}: <Title>{title}</Title>
+          {songTitle}: <Input>{title}</Input>
         </label>
         <EditorInput name="name" value={lyrics} onChange={handleChange} />
-        <button onClick={onClickHandler}>Parse</button>
+        <Button onClick={onClickHandler} type="primary">
+          Parse
+        </Button>
       </EditorBlock>
       <Preview title={title} lyricsLines={lyricsLines} />
     </EditorContainer>

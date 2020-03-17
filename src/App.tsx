@@ -1,35 +1,45 @@
 import * as React from "react";
-import { Editor } from "./features/editor";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Main, Song } from "./pages";
+import { Switch, Route, Link, useLocation } from "react-router-dom";
+import { Main, Song, Editor } from "./pages";
+import { Layout, Menu } from "antd";
+const { Header, Content } = Layout;
 
-export const App: React.FC = () => (
-  <Router>
-    <div>
-      <nav>
-        <ul>
-          <li>
+export const App: React.FC = () => {
+  const location = useLocation();
+  return (
+    <Layout>
+      <Header>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          //defaultSelectedKeys={["3"]}
+          style={{ lineHeight: "64px" }}
+          selectedKeys={[location.pathname]}
+        >
+          <Menu.Item key="/">
             <Link to="/">Home</Link>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item key="/edit">
             <Link to="/edit">Edit</Link>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item key="/song">
             <Link to="/song">Song</Link>
-          </li>
-        </ul>
-      </nav>
-      <Switch>
-        <Route path="/edit">
-          <Editor />
-        </Route>
-        <Route path="/song">
-          <Song />
-        </Route>
-        <Route path="/">
-          <Main />
-        </Route>
-      </Switch>
-    </div>
-  </Router>
-);
+          </Menu.Item>
+        </Menu>
+      </Header>
+      <Content style={{ padding: "0 50px" }}>
+        <Switch>
+          <Route path="/edit">
+            <Editor />
+          </Route>
+          <Route path="/song">
+            <Song />
+          </Route>
+          <Route path="/">
+            <Main />
+          </Route>
+        </Switch>
+      </Content>
+    </Layout>
+  );
+};

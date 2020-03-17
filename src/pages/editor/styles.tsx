@@ -16,12 +16,6 @@ export const EditorBlock = styled.div`
   flex-basis: 50%;
 `;
 
-export const Title = styled.input`
-  border: 1px solid #000000;
-  font-size: 16px;
-  margin: 10px 0;
-`;
-
 export const EditorContainer = styled.div`
   display: flex;
   flex-direction: row;

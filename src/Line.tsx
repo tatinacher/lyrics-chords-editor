@@ -7,7 +7,7 @@ import {
 } from "react-beautiful-dnd";
 import styled, { StyledComponent } from "styled-components";
 //import { Chord } from "./ui";
-import { Editor } from "./features/editor";
+import { Editor } from "./pages/editor";
 
 interface ChordsLine {
   id: string;

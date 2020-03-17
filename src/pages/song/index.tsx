@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Preview } from "../../features/editor/preview";
+import { Preview } from "../editor/preview";
 import { useStore } from "effector-react";
 import { $song } from "../../features/song/model";
 
