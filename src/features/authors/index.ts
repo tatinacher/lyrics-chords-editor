@@ -1,1 +1,1 @@
-export { getAuthors, $authors } from "./model";
+export { getAuthors, $authors, updateAuthor } from "./model";

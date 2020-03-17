@@ -14,10 +14,15 @@ export const request = async ({
     "Content-Type": "application/json;charset=UTF-8",
     Accept: "application/json"
   };
-  const options = {
-    headers,
-    method
-  };
+
+  const options =
+    method == "post"
+      ? {
+          headers,
+          method,
+          body: JSON.stringify(params)
+        }
+      : { headers, method };
   try {
     const response = await fetch(request, options);
     const result = await response.json();
